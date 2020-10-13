@@ -6,9 +6,13 @@
 
 ## Related Projects
 
+> Parent repo: https://github.com/HRR48-FEC-SquawkinPhoenix
+
   - https://github.com/HRR48-FEC-SquawkinPhoenix/Seller
   - https://github.com/HRR48-FEC-SquawkinPhoenix/Add-To-Cart
   - https://github.com/HRR48-FEC-SquawkinPhoenix/Reviews
+
+  - Proxy server combining these: https://github.com/HRR48-FEC-SquawkinPhoenix/Stu-Proxy
 
 ## Table of Contents
 
