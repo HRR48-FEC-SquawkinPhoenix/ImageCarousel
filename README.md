@@ -29,10 +29,9 @@
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+- Node >=6.13.0
+- MySQL
+- Please see package.json file for details. 'npm install' should handle dependencies.
 
 ## Notes
 
