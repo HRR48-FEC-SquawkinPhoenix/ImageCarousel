@@ -21,11 +21,11 @@
 > Some usage instructions
 
 1. Run 'npm install' from the root. This installs the necessary dependencies for the service to run.
-1. Run 'npm run build' from the root. This will bundle the React components into a single file that is run as a script from the index.html file. This ensures that service can be run in older browsers.
+1. Run 'npm run build' from the root. This will bundle the React components into a single file that is run as a script from the index.html file. This ensures that service can be run in older browsers. A bundle is provided as part of this repo, but if local changes are made you will have to rebundle to view them.
 1. Ensure that a MySQL database server is running, then run 'npm run init_db' from the root. This will create the database and tables this service relies on and seed the tables with some example data.
 1. Run 'npm start' from the root. The MySQL server with the database seeded in the previous step must still be open. This will start an Express server on port 3001, and the server will respond to a request to root by serving up a static file--the index.html that runs our bundle created in step 2.
 1. Once the Express server is running, the service can be accessed at 'http://localhost:3001', which has a default product it will display images for.
-1. To display the image carousel for a different product, the URL parameter 'products={value}' can be used. Ex. 'http://localhost:3001/?products=2' will display the images for the product with ID 2 in the database. The root URL endpoint is identical to 'http://localhost:3001/?products=1', as default URL parameters are used if none are explicitly used.
+1. To display the image carousel for a different product, users can simply use a '/:id' URL. Ex. 'http://localhost:3001/2' will display the images for the product with ID 2 in the database. The root URL endpoint is identical to 'http://localhost:3001/1', as a default URL is used for the root to ensure that not looking for a specific product does not break the service.
 
 ## Requirements
 
@@ -38,10 +38,6 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 There are some idiosyncracies with this service that I would fix given more time.
 
-- First, the spacing of the main images and navigation arrows is not perfect in the first level or the modal, and could be tweaked. It works within normal-sized windows but can get a little squeezed in very small windows or too spaced in large windows. Given that this is intended to be a part of a larger webpage, it should not hit a point where things are too spaced apart, but it might be possible that they could become too compact.
-
-- The thumbnail stack on the modal has set thumbnail sizes that look good and are organized for standard window sizes, but are not responsive when the window is resized beyond simply moving. They could be changed to keep their aspect ratio but resize and probably look slightly better.
-
 - The zoom functionality on the modal's main image uses react-image-magnifiers, which bases the zoomed in version of the photo on the original filesize. At larger window sizes, it is possible for images to already be their full size, and therefore not zoom. At medium window sizes, if there is enough space, the photos will simply expand to their full size. It is only at relatively smaller window sizes where the photos can't expand much where the zoom works as expected, though when it works it is exactly as intended. The modal's main image can also be spaced somewhat oddly relative to the left margin of the screen at small window-sizes.
 
-> Overall, most hangups with this project relate primarily to CSS. Given a short time period to learn to use flex, some things could be cleaner, and overall the service is not as responsive as it could be. This is worth noting, but the functionality and look are definitely passable at typical window sizes.
+> Most previous issues with CSS and responsiveness to different window sizes have been improved or fixed. The service has maximum and minimum sizes to prevent too much 'stretching' or 'squeezing' and it will simply overflow out of a small window and hit a max size and stop changing on a large window.
