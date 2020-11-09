@@ -39,7 +39,7 @@
 
 ## Notes
 
-There are some idiosyncracies with this service that I would fix given more time.
+There are some idiosyncracies with this service that I am currently aware of.
 
 - The zoom functionality on the modal's main image uses react-image-magnifiers, which bases the zoomed in version of the photo on the original filesize. At larger window sizes, it is possible for images to already be their full size, and therefore not zoom. At medium window sizes, if there is enough space, the photos will simply expand to their full size. It is only at relatively smaller window sizes where the photos can't expand much where the zoom works as expected, though when it works it is exactly as intended. The modal's main image can also be spaced somewhat oddly relative to the left margin of the screen at small window-sizes.
 
